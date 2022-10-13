@@ -11,7 +11,7 @@ EXPOSE 8000
 
 ARG DEV=false
 RUN python -m venv /py && \
-    mkdir app && cd app && \
+    # mkdir app && cd app && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
