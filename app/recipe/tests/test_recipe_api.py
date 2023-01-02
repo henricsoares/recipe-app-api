@@ -302,12 +302,12 @@ class PriveteRecipeAPITests(TestCase):
             self.assertTrue(exists)
 
     def test_create_recipe_with_existing_ingredient(self):
-        """Test creating a recipe with existing ingredient."""
+        """Test creating a new recipe with existing ingredient."""
         ingredient = Ingredient.objects.create(user=self.user, name="Lemon")
         payload = {
             "title": "Vietnamese Soup",
             "time_minutes": 25,
-            "price": Decimal("2.55"),
+            "price": "2.55",
             "ingredients": [{"name": "Lemon"}, {"name": "Fish Sauce"}],
         }
         res = self.client.post(RECIPES_URL, payload, format="json")
